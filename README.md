@@ -16,13 +16,7 @@ othello_web_ui/
     app.js
 ```
 
-さらに、同じフォルダにあなたのAI用ファイルを置いてください。
 
-```text
-ai1.cpp
-board.hpp
-cell_evaluate.hpp
-```
 
 ## 1. C++ AI CLIをコンパイル
 
