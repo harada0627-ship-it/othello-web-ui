@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Othello AI</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="board-card">
+      <div class="topbar">
+        <div>
+          <h1>Othello AI</h1>
+          <p id="subtitle">Web UI + C++ Search Engine</p>
+        </div>
+        <div class="score-pill">
+          <span class="dot black"></span><span id="blackCount">2</span>
+          <span class="divider"></span>
+          <span class="dot white"></span><span id="whiteCount">2</span>
+        </div>
+      </div>
+
+      <div id="board" class="board" aria-label="Othello board"></div>
+    </section>
+
+    <aside class="side-card">
+      <div class="panel">
+        <h2>Game</h2>
+        <div class="status" id="status">準備中...</div>
+      </div>
+
+      <div class="panel controls">
+        <label>
+          あなたの色
+          <select id="humanColor">
+            <option value="0">黒</option>
+            <option value="1">白</option>
+          </select>
+        </label>
+
+        <label>
+          AI探索深さ
+          <input id="depth" type="number" min="1" max="20" value="7" />
+        </label>
+
+        <button id="newGame" class="primary">新しい対局</button>
+        <button id="passBtn">パス</button>
+      </div>
+
+      <div class="panel">
+        <h2>Move history</h2>
+        <ol id="history" class="history"></ol>
+      </div>
+    </aside>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+node_modules/
+*.log
+*Zone.Identifier*
+.DS_Store
+
+
+
+
+
