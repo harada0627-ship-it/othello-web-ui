@@ -5,6 +5,9 @@
 ```text
 othello_web_ui/
   ai_cli.cpp
+　ai1.cpp
+　board.hpp
+　cell_evaluate.hpp
   server.js
   package.json
   public/
