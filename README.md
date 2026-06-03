@@ -16,46 +16,9 @@ othello_web_ui/
     app.js
 ```
 
+#url
+https://othello-web-ui.onrender.com/
 
-
-## 1. C++ AI CLIをコンパイル
-
-Windows + g++ の場合:
-
-```powershell
-g++ -std=c++17 -O2 -o ai_cli.exe ai_cli.cpp
-```
-
-bash/MSYS2/Git Bash の場合、フォルダ移動は例:
-
-```bash
-cd /c/myothelloai/ai_cell_mobility/othello_web_ui
-g++ -std=c++17 -O2 -o ai_cli.exe ai_cli.cpp
-```
-
-## 2. Node.js依存関係を入れる
-
-```powershell
-npm install
-```
-
-## 3. サーバー起動
-
-```powershell
-npm start
-```
-
-または
-
-```powershell
-node server.js
-```
-
-## 4. ブラウザで開く
-
-```text
-http://localhost:3000
-```
 
 ## 仕組み
 
