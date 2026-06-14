@@ -6,7 +6,7 @@ using namespace std;
 
 #define sc_w 64
 #define c_kaihou -2
-#define c_legal 7
+#define c_legal 5
 
 inline int cell_weight[hw2] = {
      30, -12,  0, -1, -1,  0, -12,  30,
