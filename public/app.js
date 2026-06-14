@@ -152,19 +152,13 @@ function updateStatus() {
 }
 
 function updateHistory() {
-  historyEl.innerHTML = "";
-  history.forEach((h, idx) => {
-    const li = document.createElement("li");
-    const color = h.color === BLACK ? "B" : "W";
-    if (h.pos === -1) {
-      li.textContent = `${color}: pass`;
-    } else {
-      const r = Math.floor(h.pos / 8);
-      const c = h.pos % 8;
-      li.textContent = `${color}: ${String.fromCharCode(97 + c)}${r + 1}`;
-    }
-    historyEl.appendChild(li);
-  });
+  const record = history.map(h => {
+    const r = Math.floor(h.pos / 8);
+    const c = h.pos % 8;
+    return `${String.fromCharCode(97 + c)}${r + 1}`;
+  }).join("");
+
+  historyEl.textContent = record;
 }
 
 function onCellClick(pos) {
