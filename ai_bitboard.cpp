@@ -170,7 +170,7 @@ int search(board b,int depth){
      int best = -1;
      int score = -inf;
      int canput = 0;
-     int endgame_depth = 18;
+     int endgame_depth = 16;
     
      for(int i = 0; i < hw2; i++){
         if( (vacant_board >>i) & 1ULL)

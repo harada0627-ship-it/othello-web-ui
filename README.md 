@@ -1,0 +1,22 @@
+# Othello Web UI
+
+## 構成
+
+```text
+othello\_web\_ui/
+  ai\_cli.cpp
+  server.js
+  package.json
+  public/
+    index.html
+    styles.css
+    app.js
+```
+
+<<<<<<< HEAD
+#url
+https://othello-web-ui.onrender.com/
+=======
+さらに、同じフォルダにあなたのAI用ファイルを置いてください
+
+
