@@ -16,9 +16,9 @@
 //   -1    = パス/エラー
 
 #include <iostream>
-#include "board.hpp"
-#include "cell_evaluate.hpp"
-#include "ai1.cpp"
+#include "board_bit.hpp"
+#include "evaluate.hpp"
+#include "ai_bitboard.cpp"
 
 int main() {
     int player;
@@ -42,19 +42,15 @@ int main() {
         return 0;
     }
 
-    init_board();
-    evaluate_init();
 
     board b;
-    b.trans_idx(cells);
-    b.player = player;
-    b.value = 0;
-    b.legal_number = 0;
-    b.bestmove = -1;
+    b.player =player;
+    b.trans_bitboard(cells);
+    
 
     bool has_legal = false;
     for (int i = 0; i < hw2; ++i) {
-        if (b.legal_place(i)) {
+        if (!( b.legal() == 0 )) {
             has_legal = true;
             break;
         }
