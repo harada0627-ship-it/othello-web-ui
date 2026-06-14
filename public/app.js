@@ -152,11 +152,14 @@ function updateStatus() {
 }
 
 function updateHistory() {
-  const record = history.map(h => {
-    const r = Math.floor(h.pos / 8);
-    const c = h.pos % 8;
-    return `${String.fromCharCode(97 + c)}${r + 1}`;
-  }).join("");
+  const record = history
+    .filter(h => Number.isInteger(h.pos) && h.pos >= 0 && h.pos < 64)
+    .map(h => {
+      const r = Math.floor(h.pos / 8);
+      const c = h.pos % 8;
+      return `${String.fromCharCode(97 + c)}${r + 1}`;
+    })
+    .join("");
 
   historyEl.textContent = record;
 }
