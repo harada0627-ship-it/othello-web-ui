@@ -50,6 +50,130 @@ struct hash {
         }
 
 
+
+
+inline int kakutei_opponent()const{
+    const uint64_t mask_right = opponent_board & 0x8000000000000080ULL; //右
+    const uint64_t mask_left = opponent_board &  0x0100000000000001ULL; //左
+    const uint64_t mask_above = opponent_board & 0x0000000000000081ULL; //上
+    const uint64_t mask_under = opponent_board & 0x8100000000000000ULL; //下
+    uint64_t res_board = 0;
+    uint64_t res = 0;
+    
+    res_board |= (mask_right >> 1 ) & opponent_board;
+    res_board |= (res_board >> 1 ) & opponent_board;  
+    res_board |= (res_board >> 1 ) & opponent_board;
+    res_board |= (res_board >> 1 ) & opponent_board;
+    res_board |= (res_board >> 1 ) & opponent_board;
+    res_board |= (res_board >> 1 ) & opponent_board;
+    res_board |= (res_board >> 1 ) & opponent_board;
+    res |= res_board; 
+    res_board = 0;
+
+    res_board |= (mask_left << 1 ) & opponent_board; 
+    res_board |= (res_board << 1 ) & opponent_board; 
+    res_board |= (res_board << 1 ) & opponent_board; 
+    res_board |= (res_board << 1 ) & opponent_board; 
+    res_board |= (res_board << 1 ) & opponent_board; 
+    res_board |= (res_board << 1 ) & opponent_board; 
+    res_board |= (res_board << 1 ) & opponent_board; 
+    res |= res_board; 
+    res_board = 0;
+
+    res_board |= (mask_above << 8 ) & opponent_board; 
+    res_board |= (res_board << 8 ) & opponent_board; 
+    res_board |= (res_board << 8 ) & opponent_board; 
+    res_board |= (res_board << 8 ) & opponent_board; 
+    res_board |= (res_board << 8 ) & opponent_board; 
+    res_board |= (res_board << 8 ) & opponent_board; 
+    res_board |= (res_board << 8 ) & opponent_board; 
+    res |= res_board; 
+    res_board = 0;
+   
+   res_board |= ( mask_under >> 8 ) & opponent_board;
+   res_board |= (res_board >> 8 ) & opponent_board;
+   res_board |= (res_board >> 8 ) & opponent_board;
+   res_board |= (res_board >> 8 ) & opponent_board;
+   res_board |= (res_board >> 8 ) & opponent_board;
+   res_board |= (res_board >> 8 ) & opponent_board;
+   res_board |= (res_board >> 8 ) & opponent_board;
+    res |= res_board; 
+    res_board = 0;
+
+    int count = 0;
+    for(int i = 0; i< hw2;i++){
+        if(res >>i & 1ULL)
+        count++;
+    }
+    return count;
+}
+
+inline int kakutei_player() const{
+
+    const uint64_t mask_right = player_board & 0x8000000000000080ULL; // 右方向用
+    const uint64_t mask_left  = player_board & 0x0100000000000080ULL; // 左方向用
+    const uint64_t mask_above = player_board & 0x0000000000000081ULL; // 上方向用
+    const uint64_t mask_under = player_board & 0x8100000000000000ULL; // 下方向用
+
+    uint64_t res_board = 0;
+    uint64_t res = 0;
+
+    // 角・端の起点も数える
+    res |= mask_right;
+    res |= mask_left;
+    res |= mask_above;
+    res |= mask_under;
+
+    res_board |= (mask_right >> 1) & player_board;
+    res_board |= (res_board >> 1) & player_board;
+    res_board |= (res_board >> 1) & player_board;
+    res_board |= (res_board >> 1) & player_board;
+    res_board |= (res_board >> 1) & player_board;
+    res_board |= (res_board >> 1) & player_board;
+    res_board |= (res_board >> 1) & player_board;
+    res |= res_board;
+    res_board = 0;
+
+    res_board |= (mask_left << 1) & player_board;
+    res_board |= (res_board << 1) & player_board;
+    res_board |= (res_board << 1) & player_board;
+    res_board |= (res_board << 1) & player_board;
+    res_board |= (res_board << 1) & player_board;
+    res_board |= (res_board << 1) & player_board;
+    res_board |= (res_board << 1) & player_board;
+    res |= res_board;
+    res_board = 0;
+
+    res_board |= (mask_above << 8) & player_board;
+    res_board |= (res_board << 8) & player_board;
+    res_board |= (res_board << 8) & player_board;
+    res_board |= (res_board << 8) & player_board;
+    res_board |= (res_board << 8) & player_board;
+    res_board |= (res_board << 8) & player_board;
+    res_board |= (res_board << 8) & player_board;
+    res |= res_board;
+    res_board = 0;
+
+    res_board |= (mask_under >> 8) & player_board;
+    res_board |= (res_board >> 8) & player_board;
+    res_board |= (res_board >> 8) & player_board;
+    res_board |= (res_board >> 8) & player_board;
+    res_board |= (res_board >> 8) & player_board;
+    res_board |= (res_board >> 8) & player_board;
+    res_board |= (res_board >> 8) & player_board;
+    res |= res_board;
+
+    int count = 0;
+    for (int i = 0; i < hw2; i++) {
+        if ((res >> i) & 1ULL) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+
 inline uint64_t legal()const{
 
     const uint64_t mask_side = opponent_board & 0x7e7e7e7e7e7e7e7eULL;

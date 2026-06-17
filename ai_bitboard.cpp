@@ -10,6 +10,8 @@ using namespace std;
 
 unordered_map<board, int, board::hash> transpose_table; 
 unordered_map<board, int, board::hash> former_transpose_table; 
+unordered_map<board, int, board::hash> transpose_table_uppper;
+unordered_map<board, int, board::hash> transpose_table_lower;  
 
 
 inline int moveordering_value_mid(const board& b){
@@ -212,6 +214,11 @@ int search(board b,int depth){
         return best;
 
     }else{
+
+     int kakutei_p = b.kakutei_player();
+     int kakutei_o = b.kakutei_opponent();
+     alpha = 2 * kakutei_p - hw2;
+     beta =  hw2 - 2*kakutei_o;
     vector<board> child_nodes;
     canput = 0;
     for (int i = 0; i < hw2; i++) {
