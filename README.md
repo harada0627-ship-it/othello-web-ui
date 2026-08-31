@@ -16,7 +16,5 @@ othello\_web\_ui/
 <<<<<<< HEAD
 #url
 https://othello-web-ui.onrender.com/
-=======
-さらに、同じフォルダにあなたのAI用ファイルを置いてください
 
 
