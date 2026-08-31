@@ -1,0 +1,12 @@
+{
+  "name": "othello-web-ui",
+  "version": "1.0.0",
+  "description": "Clean web UI for C++ Othello AI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}

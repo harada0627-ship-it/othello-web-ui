@@ -75,7 +75,7 @@ inline int moveordering_value_endgame(Board b)
 {
     uint64_t legal_board = b.get_legal();
 
-    return  -(__builtin_popcountll(legal_board));
+    return -(__builtin_popcountll(legal_board));
 }
 
 
